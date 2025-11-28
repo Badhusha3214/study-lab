@@ -30,7 +30,7 @@ export default function YouTubeLearningAssistant() {
   const fetchYouTubeTranscript = async (videoId) => {
     try {
       // Use our backend API to fetch the transcript
-      const response = await fetch(`http://localhost:5000/api/transcript/${videoId}`);
+      const response = await fetch(`https://study-lab-utf8.onrender.com/api/transcript/${videoId}`);
       
       const data = await response.json();
       

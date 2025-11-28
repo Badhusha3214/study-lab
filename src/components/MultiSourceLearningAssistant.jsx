@@ -100,7 +100,7 @@ export default function MultiSourceLearningAssistant() {
 
   const fetchBlog = async (url) => {
     try {
-      const res = await fetch('http://localhost:5000/api/content/blog', {
+      const res = await fetch('https://study-lab-utf8.onrender.com/api/content/blog', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url })
@@ -118,7 +118,7 @@ export default function MultiSourceLearningAssistant() {
 
   const fetchYouTubeTranscript = async (videoId) => {
     try {
-      const res = await fetch('http://localhost:5000/api/content/youtube', {
+      const res = await fetch('https://study-lab-utf8.onrender.com/api/content/youtube', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ videoId })
