@@ -13,16 +13,18 @@ dotenv.config();
 const app = express();
 
 // CORS configuration - allow requests from React app
+// Relaxed CORS: reflect request origin and handle preflight
 app.use(cors({ 
-  origin: [
-    'http://localhost:3000',
-    'http://localhost:3001',
-    'https://study-lab-utf8.onrender.com'
-  ],
+  origin: (origin, callback) => {
+    callback(null, true);
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200
 }));
+// Explicitly respond to preflight across routes
+app.options('*', cors());
 
 app.use(express.json({ limit: '1mb' }));
 app.use(morgan('dev'));
